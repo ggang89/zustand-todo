@@ -2,7 +2,7 @@ import { useTodoListStore } from "../stores/TodoListStore";
 
 
 const TodoList = () => {
-  const { id, todoTitle, isDone, isEditing, editBtn } = useTodoListStore();
+  const { id, todoTitle, isEditing, editBtn } = useTodoListStore();
   return (
     <div>
       {isEditing ? (
@@ -12,7 +12,7 @@ const TodoList = () => {
         </div>
       ) : (
         <li>
-          <input isDone={isDone} type="checkbox" />
+          
           <p>{todoTitle}</p>
           <button> 수정 </button>
           <button> 삭제 </button>

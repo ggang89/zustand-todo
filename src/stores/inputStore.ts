@@ -2,11 +2,11 @@ import { create } from "zustand";
 
 interface TodoState {
   todo: string;
-  addTodo: (todo:string) => void;
+  handleInput: (todo:string) => void;
 }
 
 export const useTodoInputStore = create<TodoState>()((set) => ({
   todo: "",
-  addTodo: (input: string) => set({ todo: input }),
+  handleInput: (input: string) => set({ todo: input }),
 }));
  
