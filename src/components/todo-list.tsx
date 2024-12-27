@@ -1,11 +1,10 @@
-import { useTodoListStore } from "../stores/TodoListStore";
-
+//import { useTodoListStore } from "../stores/TodoListStore";
 
 const TodoList = () => {
-  const { id, todoTitle, isEditing, editBtn } = useTodoListStore();
+  // const { id, todoTitle, isEditing, editBtn } = useTodoListStore();
   return (
     <div>
-      {isEditing ? (
+      {/* {isEditing ? (
         <div>
           <input>{todoTitle}</input>
           <button> 저장</button>
@@ -17,9 +16,9 @@ const TodoList = () => {
           <button> 수정 </button>
           <button> 삭제 </button>
         </li>
-      )}
+      )} */}
     </div>
   );
-}
+};
 
-export default TodoList
+export default TodoList;

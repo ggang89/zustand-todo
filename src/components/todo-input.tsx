@@ -1,10 +1,10 @@
-import { useTodoInputStore } from '../stores/inputStore'
-import { useTodoListStore } from '../stores/TodoListStore';
+import { useTodoInputStore } from '../stores/input-store'
+//import { useTodoListStore } from '../stores/TodoListStore';
 
 const TodoInput = () => {
   const todo = useTodoInputStore(state=>state.todo);
   const handleInput = useTodoInputStore((state) => state.handleInput);
-  const addTodoBtn=useTodoListStore((state)=>state.addTodoBtn)
+  //const addTodoBtn=useTodoListStore((state)=>state.addTodoBtn)
 
   // const addNewTodo = (todo:string) => {
   //   // todoList에 어떻게 추가하지?
@@ -17,7 +17,7 @@ const TodoInput = () => {
         type="text"
         onChange={(e) => handleInput(e.target.value)}
       />
-      <button onClick={() => addTodoBtn}>➕ 추가</button>
+      {/* <button onClick={() => addTodoBtn}>➕ 추가</button> */}
     </div>
   );
 };
