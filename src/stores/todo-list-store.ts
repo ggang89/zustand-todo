@@ -13,13 +13,23 @@ type TodoList = {
 
 interface Actions {
   addTodoBtn: (newTodo: string) => void;
-  editBtn: (TodoItem: TodoItem) => void;
-  removeTodo: (TodoItem: TodoItem) => void;
+  editBtn: (todoItemID: string) => void;
+  removeTodo: (todoItemID: string) => void;
 }
 
 export const useTodoListStore = create<TodoList & Actions>()((set) => ({
   todoList: [],
-  editBtn: () => {},
+  editBtn: (todoItemID) =>
+    set((state) => ({
+      todoList: state.todoList.map((todo) => {
+        if (todo.id === todoItemID) {
+          return {...todo,isEditing:true}
+        }
+        else {
+         return todo
+        }
+      }),
+    })),
   addTodoBtn: (InputText) =>
     set((state) => ({
       todoList: [
@@ -27,9 +37,8 @@ export const useTodoListStore = create<TodoList & Actions>()((set) => ({
         ...state.todoList,
       ],
     })),
-  removeTodo: (id) =>
+  removeTodo: (todoItemID) =>
     set((state) => ({
-      todoList: state.todoList.filter((todo) => todo.id !== id),
+      todoList: state.todoList.filter((todo) => todo.id !== todoItemID),
     })),
-  editBtn: (id) => set(),
 }));
