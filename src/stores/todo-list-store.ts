@@ -23,7 +23,7 @@ export const useTodoListStore = create<TodoList & Actions>()((set) => ({
     set((state) => ({
       todoList: state.todoList.map((todo) => {
         if (todo.id === todoItemID) {
-          return {...todo,isEditing:true}
+          return {...todo,isEditing:!todo.isEditing}
         }
         else {
          return todo
@@ -36,6 +36,7 @@ export const useTodoListStore = create<TodoList & Actions>()((set) => ({
         { id: uuidv4(), todoTitle: InputText, isEditing: false },
         ...state.todoList,
       ],
+      
     })),
   removeTodo: (todoItemID) =>
     set((state) => ({

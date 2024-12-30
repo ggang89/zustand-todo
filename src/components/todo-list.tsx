@@ -1,23 +1,26 @@
-//import { useTodoListStore } from "../stores/TodoListStore";
+import { useTodoListStore } from "../stores/todo-list-store";
 
 const TodoList = () => {
-  // const { id, todoTitle, isEditing, editBtn } = useTodoListStore();
+ const { todoList, removeTodo, editBtn } = useTodoListStore();
   return (
-    <div>
-      {/* {isEditing ? (
-        <div>
-          <input>{todoTitle}</input>
-          <button> 저장</button>
-        </div>
-      ) : (
-        <li>
-          
-          <p>{todoTitle}</p>
-          <button> 수정 </button>
-          <button> 삭제 </button>
+    <>
+      {todoList.map((todo) => (
+        <li key={todo.id}>
+          {todo.isEditing ? (
+            <div>
+              <input>{todo.todoTitle}</input>
+              <button onClick={() => editBtn(todo.id)}> 저장</button>
+            </div>
+          ) : (
+            <div>
+              <p>{todo.todoTitle}</p>
+              <button onClick={() => editBtn(todo.id)}> 수정 </button>
+              <button onClick={() => removeTodo(todo.id)}> 삭제 </button>
+            </div>
+          )}
         </li>
-      )} */}
-    </div>
+      ))}
+    </>
   );
 };
 
