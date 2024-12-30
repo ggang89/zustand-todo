@@ -6,6 +6,7 @@ interface TodoItem {
   id: string;
   todoTitle: string;
   isEditing: boolean;
+  isDone: boolean;
 }
 type TodoList = {
   todoList: TodoItem[];
@@ -19,19 +20,30 @@ interface Actions {
     e: React.ChangeEvent<HTMLInputElement>,
     todoItemID: string
   ) => void;
+  doneCheck: (todoItemID:string) => void;
 }
 
 export const useTodoListStore = create<TodoList & Actions>()((set) => ({
   todoList: [],
-  handleEditTodo: (e,todoItemID) =>
+  doneCheck: (todoItemID) =>
     set((state) => ({
       todoList: state.todoList.map((todo) => {
         if (todo.id === todoItemID) {
-          return {...todo,todoTitle:e.target.value}
+          return { ...todo, isDone: !todo.isDone };
         } else {
           return todo;
         }
-      })
+      }),
+    })),
+  handleEditTodo: (e, todoItemID) =>
+    set((state) => ({
+      todoList: state.todoList.map((todo) => {
+        if (todo.id === todoItemID) {
+          return { ...todo, todoTitle: e.target.value };
+        } else {
+          return todo;
+        }
+      }),
     })),
   editBtn: (todoItemID) =>
     set((state) => ({
@@ -46,7 +58,7 @@ export const useTodoListStore = create<TodoList & Actions>()((set) => ({
   addTodoBtn: (InputText) =>
     set((state) => ({
       todoList: [
-        { id: uuidv4(), todoTitle: InputText, isEditing: false },
+        { id: uuidv4(), todoTitle: InputText, isEditing: false, isDone: false },
         ...state.todoList,
       ],
     })),

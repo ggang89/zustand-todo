@@ -11,6 +11,7 @@ function App() {
 
   return (
     <>
+      <h1 className="font-extrabold text-4xl">할 일 </h1>
       <TodoInput />
       <ul>
         <TodoList />

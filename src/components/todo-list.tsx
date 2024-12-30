@@ -1,7 +1,8 @@
 import { useTodoListStore } from "../stores/todo-list-store";
 
 const TodoList = () => {
-  const { todoList, removeTodo, editBtn, handleEditTodo } = useTodoListStore();
+  const { todoList, removeTodo, editBtn, handleEditTodo, doneCheck } =
+    useTodoListStore();
   console.log(todoList);
   return (
     <>
@@ -20,7 +21,12 @@ const TodoList = () => {
             </div>
           ) : (
             <div>
-              <p>{todo.todoTitle}</p>
+              <input type="checkbox" onClick={() => doneCheck(todo.id)} />
+              {todo.isDone ? (
+                <p className="line-through">{todo.todoTitle}</p>
+              ) : (
+                <p>{todo.todoTitle}</p>
+              )}
               <button onClick={() => editBtn(todo.id)}> 수정 </button>
               <button onClick={() => removeTodo(todo.id)}> 삭제 </button>
             </div>
