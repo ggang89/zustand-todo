@@ -3,7 +3,10 @@ import { useTodoListStore } from "../stores/todo-list-store";
 const TodoList = () => {
   const { todoList, removeTodo, editBtn, handleEditTodo, doneCheck } =
     useTodoListStore();
-  
+  const enter = (e: React.KeyboardEvent<HTMLInputElement>,id:string) => {
+    if (e.key === "Enter") {
+     editBtn(id); }
+  };
   return (
     <>
       {todoList.map((todo) => (
@@ -15,6 +18,9 @@ const TodoList = () => {
                 type="text"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                   handleEditTodo(e, todo.id)
+                }
+                onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) =>
+                  enter(e,todo.id)
                 }
                 className="flex-1"
               />
