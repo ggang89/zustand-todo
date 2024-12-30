@@ -10,13 +10,15 @@ function App() {
   
 
   return (
-    <>
-      <h1 className="font-extrabold text-4xl">할 일 </h1>
+    <div className="w-3/4 h-screen mt-10 m-auto shadow-md bg-orange-50">
+      <h1 className="font-extrabold text-4xl p-6 text-center">
+        ✅ 오늘의 할 일{" "}
+      </h1>
       <TodoInput />
       <ul>
         <TodoList />
       </ul>
-    </>
+    </div>
   );
 }
 

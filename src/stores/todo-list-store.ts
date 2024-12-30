@@ -58,8 +58,8 @@ export const useTodoListStore = create<TodoList & Actions>()((set) => ({
   addTodoBtn: (InputText) =>
     set((state) => ({
       todoList: [
-        { id: uuidv4(), todoTitle: InputText, isEditing: false, isDone: false },
         ...state.todoList,
+        { id: uuidv4(), todoTitle: InputText, isEditing: false, isDone: false },
       ],
     })),
   removeTodo: (todoItemID) =>
