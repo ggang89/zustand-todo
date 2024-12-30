@@ -2,6 +2,7 @@ import { useTodoInputStore } from "../stores/input-store";
 //import { useState } from "react";
 import { useTodoListStore } from "../stores/todo-list-store";
 
+
 const TodoInput = () => {
   const todo = useTodoInputStore((state) => state.todo);
   const handleInput = useTodoInputStore((state) => state.handleInput);
@@ -15,6 +16,7 @@ const TodoInput = () => {
     //setInput("");
     handleInput("")
     console.log(todo)
+    
   };
 
  
