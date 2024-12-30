@@ -20,10 +20,14 @@ const TodoInput = () => {
   const enter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (todo && event.key === "Enter") {
       addNewTodo(todo);
-    }else {
-      inputRef.current?.focus();
-      alert("할 일을 입력하세요")
     }
+    // else {
+    //   inputRef.current?.focus();
+    //   alert("할 일을 입력하세요")
+    // }
+    //=> 오류 : 문자 있는데도 alert창 뜨고,inputRef 작동하는지 몰겠다
+    // => 왜 커서가 안보이지?
+    
   };
 
   return (
