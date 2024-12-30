@@ -1,7 +1,7 @@
 import { useTodoListStore } from "../stores/todo-list-store";
 
 const TodoList = () => {
-  const { todoList, removeTodo, editBtn } = useTodoListStore();
+  const { todoList, removeTodo, editBtn, handleEditTodo } = useTodoListStore();
   console.log(todoList);
   return (
     <>
@@ -9,7 +9,13 @@ const TodoList = () => {
         <li key={todo.id}>
           {todo.isEditing ? (
             <div>
-              <input value={todo.todoTitle} />
+              <input
+                value={todo.todoTitle}
+                type="text"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  handleEditTodo(e, todo.id)
+                }
+              />
               <button onClick={() => editBtn(todo.id)}> 저장</button>
             </div>
           ) : (

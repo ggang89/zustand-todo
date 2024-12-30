@@ -15,18 +15,31 @@ interface Actions {
   addTodoBtn: (newTodo: string) => void;
   editBtn: (todoItemID: string) => void;
   removeTodo: (todoItemID: string) => void;
+  handleEditTodo: (
+    e: React.ChangeEvent<HTMLInputElement>,
+    todoItemID: string
+  ) => void;
 }
 
 export const useTodoListStore = create<TodoList & Actions>()((set) => ({
   todoList: [],
+  handleEditTodo: (e,todoItemID) =>
+    set((state) => ({
+      todoList: state.todoList.map((todo) => {
+        if (todo.id === todoItemID) {
+          return {...todo,todoTitle:e.target.value}
+        } else {
+          return todo;
+        }
+      })
+    })),
   editBtn: (todoItemID) =>
     set((state) => ({
       todoList: state.todoList.map((todo) => {
         if (todo.id === todoItemID) {
-          return {...todo,isEditing:!todo.isEditing}
-        }
-        else {
-         return todo
+          return { ...todo, isEditing: !todo.isEditing };
+        } else {
+          return todo;
         }
       }),
     })),
@@ -36,7 +49,6 @@ export const useTodoListStore = create<TodoList & Actions>()((set) => ({
         { id: uuidv4(), todoTitle: InputText, isEditing: false },
         ...state.todoList,
       ],
-      
     })),
   removeTodo: (todoItemID) =>
     set((state) => ({
