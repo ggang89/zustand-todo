@@ -12,22 +12,22 @@ const TodoInput = () => {
   const addTodoBtn = useTodoListStore((state) => state.addTodoBtn);
 
   const addNewTodo = (todo: string) => {
+    if (todo === "") {
+      alert("할 일을 입력하세요");
+      inputRef.current?.focus();
+      return;
+    }
     addTodoBtn(todo);
     //setInput("");
     handleInput("");
     console.log(todo);
   };
   const enter = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (todo && event.key === "Enter") {
+    if (event.key === "Enter") {
       addNewTodo(todo);
     }
-    // else {
-    //   inputRef.current?.focus();
-    //   alert("할 일을 입력하세요")
-    // }
     //=> 오류 : 문자 있는데도 alert창 뜨고,inputRef 작동하는지 몰겠다
     // => 왜 커서가 안보이지?
-    
   };
 
   return (
@@ -35,6 +35,7 @@ const TodoInput = () => {
       <label htmlFor="newTodo" className=" text-sm">
         새로운 할 일
       </label>
+
       <input
         ref={inputRef}
         id="newTodo"
@@ -42,7 +43,7 @@ const TodoInput = () => {
         type="text"
         placeholder=" 무엇을 할까요?"
         onChange={(e) => handleInput(e.target.value)}
-        className="rounded-md w-3/5 h-[30px] flex-1"
+        className="rounded-md w-3/5 h-[30px] flex-1 px-2"
         onKeyDown={(e) => enter(e)}
       />
       <button
