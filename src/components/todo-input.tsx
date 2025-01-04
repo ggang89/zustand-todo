@@ -1,11 +1,11 @@
 import { useRef } from "react";
-import { useTodoInputStore } from "../stores/input-store";
+//import { useTodoInputStore } from "../stores/input-store";
 //import { useState } from "react";
 import { useTodoListStore } from "../stores/todo-list-store";
 
 const TodoInput = () => {
-   const todo = useTodoInputStore((state) => state.todo);
-  const handleInput = useTodoInputStore((state) => state.handleInput);
+  //const todo = useTodoInputStore((state) => state.todo);
+  //const handleInput = useTodoInputStore((state) => state.handleInput);
   const inputRef = useRef<HTMLInputElement>(null);
 
   //const [input, setInput] = useState("");
@@ -41,8 +41,11 @@ const TodoInput = () => {
     }
 
     addTodoBtn(input.value);
-    inputRef.current!.value = ""; // input 필드 비우기
-     //handleInput("") //으로 값이 안 지워진다!
+
+    // input 필드 값 초기화
+    input.value = "";
+    //inputRef.current!.value = ""; // input 필드 비우기
+    //handleInput("") //으로 값이 안 지워진다!
   };
 
   return (
@@ -56,12 +59,9 @@ const TodoInput = () => {
           name="input"
           ref={inputRef}
           id="newTodo"
-          // value={todo}
           type="text"
           placeholder=" 무엇을 할까요?"
-           //onChange={(e) => handleInput(e.target.value)}
           className="rounded-md w-3/5 h-[30px] flex-1 px-2"
-          // onKeyDown={(e) => enter(e)}
         />
         <button
           className="border-0 rounded-md bg-slate-900 text-white font-bold px-3 py-1 hover:bg-gray-600"
