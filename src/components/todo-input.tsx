@@ -11,23 +11,6 @@ const TodoInput = () => {
   //const [input, setInput] = useState("");
   const addTodoBtn = useTodoListStore((state) => state.addTodoBtn);
 
-  // const addNewTodo = (todo: string) => {
-  //   if (todo === "") {
-  //     alert("할 일을 입력하세요");
-  //     inputRef.current?.focus();
-  //     return;
-  //   }
-  //   addTodoBtn(todo);
-  //   //setInput("");
-  //   handleInput("");
-  // };
-
-  // const enter = (event: React.KeyboardEvent<HTMLInputElement>) => {
-  //   if (event.key === "Enter") {
-  //     addNewTodo(todo);
-  //   }
-
-  // };
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -65,7 +48,7 @@ const TodoInput = () => {
         />
         <button
           className="border-0 rounded-md bg-slate-900 text-white font-bold px-3 py-1 hover:bg-gray-600"
-          // onClick={() => addNewTodo(todo)}
+      
           type="submit"
         >
           추가
