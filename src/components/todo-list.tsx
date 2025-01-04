@@ -20,12 +20,12 @@ const TodoList = () => {
                   handleEditTodo(e, todo.id)
                 }
                 onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) =>
-                  enter(e,todo.id)
+                  enter(e, todo.id)
                 }
-                className="flex-1"
+                className="flex-1 px-3 rounded-md focus:outline-none focus:ring-2 focus: ring-red-400 "
               />
               <button
-                className="border-0 rounded-md bg-slate-900 text-white font-bold px-3 py-1 hover:bg-blue-700"
+                className="h-[35px] text-sm border-0 rounded-md bg-slate-500 text-white font-bold px-2 py-1 hover:bg-gray-900"
                 onClick={() => editBtn(todo.id)}
               >
                 {" "}
@@ -36,18 +36,22 @@ const TodoList = () => {
             <div className="flex gap-1 border-b-2 border-gray-200 py-3 items-center justify-center ">
               <input type="checkbox" onClick={() => doneCheck(todo.id)} />
               {todo.isDone ? (
-                <p className="line-through flex-1 italic">{todo.todoTitle}</p>
+                <p className="line-through font-bold text-base text-slate-600 flex-1 italic px-2">
+                  {todo.todoTitle}
+                </p>
               ) : (
-                <p className="font-semibold flex-1">{todo.todoTitle}</p>
+                <p className="font-bold text-base flex-1 px-2">
+                  {todo.todoTitle}
+                </p>
               )}
               <button
-                className="border-0 rounded-md bg-slate-900 text-white font-bold px-3 py-1 hover:bg-blue-700"
+                className="h-[35px] text-sm border-0 rounded-md bg-slate-500 text-white font-bold px-2 py-1 hover:bg-gray-900"
                 onClick={() => editBtn(todo.id)}
               >
                 수정
               </button>
               <button
-                className="border-0 rounded-md bg-slate-900 text-white font-bold px-3 py-1 hover:bg-red-700"
+                className="h-[35px] border-0 rounded-md text-sm bg-red-400 text-white font-bold px-2 py-1 hover:bg-red-600"
                 onClick={() => removeTodo(todo.id)}
               >
                 삭제

@@ -15,8 +15,8 @@ function App() {
   }, []);
 
   return (
-    <div className="w-3/4 h-screen mt-10 m-auto shadow-md bg-orange-50">
-      <h1 className="font-extrabold text-4xl p-6 text-center">
+    <div className="w-[600px] h-screen mt-10 m-auto shadow-md px-5 bg-slate-50">
+      <h1 className="font-extrabold text-4xl p-10 text-center">
         ✅ 오늘의 할 일{" "}
       </h1>
 

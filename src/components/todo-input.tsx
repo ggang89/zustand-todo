@@ -44,11 +44,10 @@ const TodoInput = () => {
           id="newTodo"
           type="text"
           placeholder=" 무엇을 할까요?"
-          className="rounded-md w-3/5 h-[30px] flex-1 px-2"
+          className="placeholder:italic placeholder:text-slate-400 border border-slate-100 rounded-md h-[40px] flex-1 px-2  focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500"
         />
         <button
-          className="border-0 rounded-md bg-slate-900 text-white font-bold px-3 py-1 hover:bg-gray-600"
-      
+          className="h-[40px] border-0 rounded-md bg-blue-400 text-white font-bold px-3 py-1 hover:bg-blue-700"
           type="submit"
         >
           추가
