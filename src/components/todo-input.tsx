@@ -41,8 +41,8 @@ const TodoInput = () => {
     }
 
     addTodoBtn(input.value);
-   // inputRef.current!.value = ""; // input 필드 비우기
-     handleInput("") //으로 값이 안 지워진다!
+    inputRef.current!.value = ""; // input 필드 비우기
+     //handleInput("") //으로 값이 안 지워진다!
   };
 
   return (
@@ -56,10 +56,10 @@ const TodoInput = () => {
           name="input"
           ref={inputRef}
           id="newTodo"
-           value={todo}
+          // value={todo}
           type="text"
           placeholder=" 무엇을 할까요?"
-           onChange={(e) => handleInput(e.target.value)}
+           //onChange={(e) => handleInput(e.target.value)}
           className="rounded-md w-3/5 h-[30px] flex-1 px-2"
           // onKeyDown={(e) => enter(e)}
         />
