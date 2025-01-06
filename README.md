@@ -2,7 +2,7 @@
  CRUD 기능과 함께 보다 나은 **사용자 편의**를 생각한 **ToDo App** 서비스입니다.    
  
 
- [➡*🚀 구경가기*](https://today-todo-self.vercel.app/) 
+ [→ *🚀 구경가기*](https://today-todo-self.vercel.app/) 
 
 [![ ](./src/assets/todayTodo.JPG)](https://today-todo-self.vercel.app/)   
    
@@ -14,21 +14,25 @@
 > ### header  
 
 *  **현재 시간 확인**    
-  ➡ useState를 사용하여 현재 시간을 저장해주고, setInterval함수를 사용하여 `매 초마다 새로운 시간을 set함수로 전달`하여 시간 state값을 업데이트 해줌
+  →  useState를 사용하여 현재 시간을 저장해주고, setInterval함수를 사용하여 `매 초마다 새로운 시간을 set함수로 전달`하여 시간 state값을 업데이트 해줌
 
 * **빈칸 입력 방지를 기능을 추가한 입력창**    
-  ➡  빈 투두값을 입력할 때, `useRef( )`로 DOM에 접근하여 `input창을 focus`시키고, `css`를 통해 input창에 파란색 border를 주어 `사용자의 주의를 전환`시킴   
-  ➡ alert에 `경고메시지`를 주어 사용자가 빈 값을 입력하는 것을 방지
+  →   빈 투두값을 입력할 때, `useRef( )`로 DOM에 접근하여 `input창을 focus`시키고, `css`를 통해 input창에 파란색 border를 주어 `사용자의 주의를 전환`시킴   
+  ![](./src/assets/input.JPG)
+  →  alert에 `경고메시지`를 주어 사용자가 빈 값을 입력하는 것을 방지
+  ![](./src/assets/alert.JPG)   
 
 > ### Todo List   
 *  **체크박스**  
-![](./src/assets/checkBox.JPG) 
- ➡ 체크박스를 클릭했을 `css styling` *(line-through, italic, text-color)* 을 통해 완료한 투두임을 `구분` 함
+![](./src/assets/checkBox.JPG)   
+
+   →  체크박스를 클릭했을 `css styling` *(line-through, italic, text-color)* 을 통해 완료한 투두임을 `구분` 함
 
  * **수정기능**  
- ![](./src/assets/editing.JPG) 
- ➡ 수정 text임을 표시하기 위해  `css styling` *(text-color, italic)* 을 통한 기존 투두와의 `차별적 디자인 적용`   
-➡ `수정버튼`을 통해 수정할 수 있는 기존 기능을 `문자열 창을 눌렀을 때도 수정`할 수 있도록 `기능 확대`
+ ![](./src/assets/editing.JPG)   
+
+   →  수정 text임을 표시하기 위해  `css styling` *(text-color, italic)* 을 통한 기존 투두와의 `차별적 디자인 적용`   
+  →  `수정버튼`을 통해 수정할 수 있는 기존 기능을 `문자열 창을 눌렀을 때도 수정`할 수 있도록 `기능 확대`
  
 * **삭제 기능**   
 `filter( ) 함수`를 사용하여 클릭한 투두와 id 값이 다른 투두만 필터링해서 보여줌     
