@@ -3,6 +3,7 @@ import "./App.css";
 import TodoInput from "./components/todo-input";
 import TodoList from "./components/todo-list";
 
+
 function App() {
   // const [input, setInput] = useState();
   // const [todoList, setTodoList] = useState([]);
@@ -21,7 +22,7 @@ function App() {
       </h1>
 
       <div className=" flex justify-end m-3">
-        📆
+        📅
         <h3 className=" mx-2 font-bold italic text-red-950">{currentTime}</h3>
       </div>
       <TodoInput />

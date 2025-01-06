@@ -34,7 +34,7 @@ const TodoInput = () => {
   return (
     <form onSubmit={submit}>
       <div className="px-3 h-[80px] flex gap-3 items-center">
-        <label htmlFor="newTodo" className=" text-sm">
+        <label htmlFor="newTodo" className=" text-sm font-bold text-gray-600">
           새로운 할 일
         </label>
 
